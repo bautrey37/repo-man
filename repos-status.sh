@@ -15,6 +15,7 @@ do
   # archived=$(${status} | jq -r '.isArchived')
   # updatedAt=$(date -d ${status} | jq -r '.updatedAt')
   branch=$(git -C ${dir} symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+  legacyBackstageBranch=$(git -C ${dir} branch -r | grep backstage)
 
   if [[ $archived == 'true' ]]
   then
@@ -24,6 +25,11 @@ do
   if [[ $branch != 'master' ]]
   then
     echo "Repo \"$repo\" current branch: \"$branch\""
+  fi
+
+  if [[ $legacyBackstageBranch != '' ]]
+  then
+    echo "Legacy Backstage Branch: Repo \"$repo\""
   fi
 
   # if [[ $updatedAt < $(date ) ]]
