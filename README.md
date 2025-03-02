@@ -25,3 +25,4 @@ CLones all non-forked and archived repositories and then counts the line of code
 ## TODOs
 
 - Combine the individual scripts into a master script.
+- Configure to not be fixed for my company
