@@ -16,7 +16,7 @@ do
   # updatedAt=$(date -d ${status} | jq -r '.updatedAt')
   branch=$(git -C ${dir} symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
-  if [[ $branch != 'master' ]]
+  if [[ $branch != 'master' || $branch != 'main']]
   then
     echo "Repo \"$repo\" current branch: \"$branch\""
   else
@@ -25,6 +25,6 @@ do
     echo "Done updating"
 
     # todo: test is master is up to date, then do not update.
-    # todo: provide shortened summary of update, like number of commits. 
+    # todo: provide shortened summary of update, like number of commits.
   fi
 done
