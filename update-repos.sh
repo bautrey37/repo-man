@@ -64,7 +64,5 @@ do
     fi
 
     echo -e "${PURPLE}Done updating${NC}"
-
-    # todo: test is master is up to date, then do not update.
   fi
 done
