@@ -23,9 +23,6 @@ do
 
   repo="$(basename $dir)"
 
-  # status=$(gh repo view salemove/${repo} --json isArchived,updatedAt)
-  # archived=$(${status} | jq -r '.isArchived')
-  # updatedAt=$(date -d ${status} | jq -r '.updatedAt')
   branch=$(git -C ${dir} symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
   if [ "$branch" != 'master' ] && [ "$branch" != 'main' ]
